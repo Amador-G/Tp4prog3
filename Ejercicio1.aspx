@@ -13,11 +13,11 @@
             DESTINO INICIO<br />
             <br />
             Provincia :&nbsp;
-            <asp:DropDownList ID="ddlProvinicio" runat="server" OnSelectedIndexChanged="ddlProvinicio_SelectedIndexChanged">
+            <asp:DropDownList ID="ddlProvinicio" runat="server" AutoPostBack="True">
             </asp:DropDownList>
             <br />
             Localidad :
-            <asp:DropDownList ID="ddlLocinicio" runat="server" OnSelectedIndexChanged="ddlLocinicio_SelectedIndexChanged">
+            <asp:DropDownList ID="ddlLocinicio" runat="server">
             </asp:DropDownList>
             <br />
             <br />
