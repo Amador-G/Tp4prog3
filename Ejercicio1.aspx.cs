@@ -13,7 +13,7 @@ namespace TP4_PROG3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string bdViajes = "Data Source=localhost\\sqlexpress;Initial Catalog=Neptuno;Integrated Security=True";
+            string bdViajes = "Data Source=localhost\\sqlexpress;Initial Catalog=Viajes;Integrated Security=True";
             string consultaSql = "select * from Provincias";
 
             if (!IsPostBack)
@@ -24,22 +24,39 @@ namespace TP4_PROG3
                 SqlDataAdapter adaptador = new SqlDataAdapter(consultaSql,bdViajes);
                 adaptador.Fill(ds,"Provincias");
 
+                ListItemCollection Coleccion = new ListItemCollection();
+
+                Coleccion.Add(new ListItem("-- Seleccione Provincia --"));
+
                 foreach(DataRow dr in ds.Tables["Provincias"].Rows)
                 {
-                    ddlProvinicio.Items.Add(dr["IdProvincia"] + " " + dr["NombreProvincia"]);
+                    Coleccion.Add(new ListItem(dr["IdProvincia"] + " " + dr["NombreProvincia"], dr["IdProvincia"].ToString()) );
                 }
+                ddlProvinicio.DataSource = Coleccion;
+                ddlProvinicio.DataBind();
                 cn.Close();
+                
+                
             }
         }
 
         protected void ddlLocinicio_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void ddlProvinicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
             string idProvincia;
             idProvincia = ddlProvinicio.SelectedValue;
-            SqlConnection cn = new SqlConnection("Data Source=localhost\\sqlexpress;Initial Catalog=Neptuno;Integrated Security=Truee");
+            SqlConnection cn = new SqlConnection("Data Source=localhost\\sqlexpress;Initial Catalog=Viajes;Integrated Security=True");
             cn.Open();
 
-            SqlCommand cmd = new SqlCommand("select * from Provincias inner join Localidades on Provincias.IdProvincia = Localidades.IdProvincia where Localidades.IdProvincia = " + idProvincia, cn);
+            string ConsultaLocInicio = "select NombreLocalidad from Provincias inner join Localidades on Provincias.IdProvincia = Localidades.IdProvincia where Localidades.IdProvincia = '";
+            ConsultaLocInicio += idProvincia + "'";
+            lblTest.Text = "Usted seleccionó el ID " + idProvincia;
+
+            SqlCommand cmd = new SqlCommand(ConsultaLocInicio, cn);
 
             SqlDataReader dr = cmd.ExecuteReader();
 
@@ -47,8 +64,10 @@ namespace TP4_PROG3
 
             ddlLocinicio.DataTextField = "NombreLocalidad";
             ddlLocinicio.DataValueField = "IdProvincia";
-
+            
             ddlLocinicio.DataBind();
+
+
 
             cn.Close();
         }

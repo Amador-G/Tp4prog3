@@ -13,7 +13,7 @@
             DESTINO INICIO<br />
             <br />
             Provincia :&nbsp;
-            <asp:DropDownList ID="ddlProvinicio" runat="server">
+            <asp:DropDownList ID="ddlProvinicio" runat="server" OnSelectedIndexChanged="ddlProvinicio_SelectedIndexChanged">
             </asp:DropDownList>
             <br />
             Localidad :
@@ -32,6 +32,9 @@
             Localidad :
             <asp:DropDownList ID="ddlLocDestino" runat="server">
             </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="lblTest" runat="server"></asp:Label>
         </div>
     </form>
 </body>
