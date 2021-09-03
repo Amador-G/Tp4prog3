@@ -19,7 +19,7 @@ namespace TP4_PROG3
                 SqlCommand cmd = new SqlCommand("select NombreProvincia,IdProvincia from Provincias", cn);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
-                ddlProvinicio.Items.Add("-- Seleccione Provincia --");
+                
 
                 ddlProvinicio.DataSource = dr;
 
@@ -27,8 +27,11 @@ namespace TP4_PROG3
                 ddlProvinicio.DataValueField = "IdProvincia";
 
                 ddlProvinicio.DataBind();
+                ddlProvinicio.Items.Insert(0, "-- Seleccione Provincia --");
+                
 
-           
+
+
                 cn.Close();
                 
             }
@@ -37,24 +40,34 @@ namespace TP4_PROG3
             {
                 string idProvincia;
                 idProvincia = ddlProvinicio.SelectedValue;
-               // lblTest.Text = "hgoasdasdasdla";
+                // lblTest.Text = "hgoasdasdasdla";
 
-                SqlConnection cn2 = new SqlConnection("Data Source=localhost\\sqlexpress;Initial Catalog=Viajes;Integrated Security=True");
-                cn2.Open();
+                if (ddlProvinicio.SelectedIndex != 0)
+                {
+                    SqlConnection cn2 = new SqlConnection("Data Source=localhost\\sqlexpress;Initial Catalog=Viajes;Integrated Security=True");
+                    cn2.Open();
+                    SqlCommand cmd2 = new SqlCommand("select NombreLocalidad,IdProvincia from Localidades where Localidades.IdProvincia = " + idProvincia, cn2);
 
-                //SqlCommand cmd = new SqlCommand("select * from Provincias inner join Localidades on Provincias.IdProvincia = Localidades.IdProvincia where Localidades.IdProvincia = " + idProvincia, cn);
-                SqlCommand cmd2 = new SqlCommand("select NombreLocalidad,IdProvincia from Localidades where Localidades.IdProvincia = " + idProvincia, cn2);
+                    SqlDataReader dr2 = cmd2.ExecuteReader();
 
-                SqlDataReader dr2 = cmd2.ExecuteReader();
+                    ddlLocinicio.DataSource = dr2;
 
-                ddlLocinicio.DataSource = dr2;
+                    ddlLocinicio.DataTextField = "NombreLocalidad";
+                    ddlLocinicio.DataValueField = "IdProvincia";
 
-                ddlLocinicio.DataTextField = "NombreLocalidad";
-                ddlLocinicio.DataValueField = "IdProvincia";
+                    ddlLocinicio.DataBind();
 
-                ddlLocinicio.DataBind();
+                    ddlLocinicio.Items.Insert(0, "-- Seleccione Localidad --");
+                    cn2.Close();
 
-                cn2.Close();
+                }
+                else
+                {
+                    ddlLocinicio.Items.Clear();
+                    ddlProvDestino.Items.Clear();
+                    ddlLocDestino.Items.Clear();
+                }
+               
             }
            
             
