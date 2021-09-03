@@ -17,7 +17,7 @@
             </asp:DropDownList>
             <br />
             Localidad :
-            <asp:DropDownList ID="ddlLocinicio" runat="server">
+            <asp:DropDownList ID="ddlLocinicio" runat="server" OnSelectedIndexChanged="ddlLocinicio_SelectedIndexChanged">
             </asp:DropDownList>
             <br />
             <br />

@@ -31,5 +31,26 @@ namespace TP4_PROG3
                 cn.Close();
             }
         }
+
+        protected void ddlLocinicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string idProvincia;
+            idProvincia = ddlProvinicio.SelectedValue;
+            SqlConnection cn = new SqlConnection("Data Source=localhost\\sqlexpress;Initial Catalog=Neptuno;Integrated Security=Truee");
+            cn.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from Provincias inner join Localidades on Provincias.IdProvincia = Localidades.IdProvincia where Localidades.IdProvincia = " + idProvincia, cn);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            ddlLocinicio.DataSource = dr;
+
+            ddlLocinicio.DataTextField = "NombreLocalidad";
+            ddlLocinicio.DataValueField = "IdProvincia";
+
+            ddlLocinicio.DataBind();
+
+            cn.Close();
+        }
     }
 }
