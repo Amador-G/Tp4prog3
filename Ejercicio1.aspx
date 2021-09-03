@@ -25,7 +25,7 @@
             DESTINO FINAL<br />
             <br />
             Provincia :
-            <asp:DropDownList ID="ddlProvDestino" runat="server">
+            <asp:DropDownList ID="ddlProvDestino" runat="server" OnSelectedIndexChanged="ddlProvDestino_SelectedIndexChanged">
             </asp:DropDownList>
             <br />
             <br />
