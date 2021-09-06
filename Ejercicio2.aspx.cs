@@ -21,7 +21,7 @@ namespace TP4_PROG3
 
        public DataSet Consulta(string consulta)
         {
-            string rutabd = "Data Source=DESKTOP-6VN45UU\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
+            string rutabd = "Data Source=localhost\\sqlexpress;Initial Catalog=Neptuno;Integrated Security=True";
             SqlConnection cn = new SqlConnection(rutabd);
             cn.Open();
             DataSet ds = new DataSet();
@@ -129,7 +129,7 @@ namespace TP4_PROG3
 
         protected void btnBorrar_Click(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection("Data Source=DESKTOP-6VN45UU\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True");
+            SqlConnection cn = new SqlConnection("Data Source=localhost\\sqlexpress;Initial Catalog=Neptuno;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = new SqlCommand("select * from Productos", cn);
             SqlDataReader dr = cmd.ExecuteReader();
