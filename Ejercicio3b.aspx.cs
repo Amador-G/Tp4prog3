@@ -15,7 +15,7 @@ namespace TP4_PROG3
         {
             string TemaElegido;
             TemaElegido = Request.QueryString["IdTema"];
-            string rutaBd = "Data Source=laptop-d5dkhvl7\\sqlexpress01;Initial Catalog=Libreria;Integrated Security=True";
+            string rutaBd = "Data Source=localhost\\sqlexpress;Initial Catalog=Libreria;Integrated Security=True";
             string consultaBd = "select * from Libros where Libros.IdTema =" + TemaElegido;
 
 
