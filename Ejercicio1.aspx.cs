@@ -102,7 +102,7 @@ namespace TP4_PROG3
         protected void ddlProvDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblTest.Text = "eaeaeae";
-            if (ddlProvDestino.SelectedIndex != 0)
+            if (ddlProvDestino.SelectedIndex != 0 && ddlProvDestino.Items.Count != 0)
             {
                 lblTest.Text = "holas";
                 SqlConnection cn = new SqlConnection("Data Source=localhost\\sqlexpress;Initial Catalog=Viajes;Integrated Security=True");
@@ -131,7 +131,7 @@ namespace TP4_PROG3
         private void CreacionLocDest()
         {
             lblTest.Text = "asdaasdasdasdsd";
-            if (ddlProvDestino.SelectedIndex != 0)
+            if (ddlProvDestino.SelectedIndex != 0 && ddlProvDestino.Items.Count != 0)
             {
                 SqlConnection cn = new SqlConnection("Data Source=localhost\\sqlexpress;Initial Catalog=Viajes;Integrated Security=True");
                 cn.Open();
