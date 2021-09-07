@@ -16,7 +16,7 @@ namespace TP4_PROG3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+            string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
             string consulta = "select * from Productos ";
 
 
@@ -36,7 +36,7 @@ namespace TP4_PROG3
         {
             if (txtProducto.Text=="" && txtCategoria.Text == "") 
             {
-                string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
 
                 string consulta = "select * from Productos ";
 
@@ -55,7 +55,7 @@ namespace TP4_PROG3
             {
                 if (ddlProducto.SelectedIndex == 0 && ddlCategoria.SelectedIndex==0)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdProducto =" + idProducto + "and IdCategoría =" + idCategoria;
@@ -74,7 +74,7 @@ namespace TP4_PROG3
                 }
                 if (ddlProducto.SelectedIndex == 1 && ddlCategoria.SelectedIndex == 0)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdProducto >" + idProducto + "and IdCategoría =" + idCategoria;
@@ -93,7 +93,7 @@ namespace TP4_PROG3
                 }
                 if (ddlProducto.SelectedIndex == 0 && ddlCategoria.SelectedIndex == 1)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdProducto =" + idProducto + "and IdCategoría >" + idCategoria;
@@ -112,7 +112,7 @@ namespace TP4_PROG3
                 }
                 if (ddlProducto.SelectedIndex == 1 && ddlCategoria.SelectedIndex == 1)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdProducto >" + idProducto + "and IdCategoría >" + idCategoria;
@@ -131,7 +131,7 @@ namespace TP4_PROG3
                 }
                 if (ddlProducto.SelectedIndex == 2 && ddlCategoria.SelectedIndex == 1)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdProducto <" + idProducto + "and IdCategoría >" + idCategoria;
@@ -150,7 +150,7 @@ namespace TP4_PROG3
                 }
                 if (ddlProducto.SelectedIndex == 1 && ddlCategoria.SelectedIndex == 2)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdProducto >" + idProducto + "and IdCategoría <" + idCategoria;
@@ -169,7 +169,7 @@ namespace TP4_PROG3
                 }
                 if (ddlProducto.SelectedIndex == 2 && ddlCategoria.SelectedIndex == 2)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdProducto <" + idProducto + "and IdCategoría <" + idCategoria;
@@ -192,7 +192,7 @@ namespace TP4_PROG3
             {
                 if (ddlProducto.SelectedIndex == 0)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string consulta = "select * from Productos where IdProducto =" + idProducto;
 
@@ -209,7 +209,7 @@ namespace TP4_PROG3
                 }
                 if (ddlProducto.SelectedIndex == 1)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string consulta = "select * from Productos where IdProducto >" + idProducto;
 
@@ -226,7 +226,7 @@ namespace TP4_PROG3
                 }
                 if (ddlProducto.SelectedIndex == 2)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idProducto = txtProducto.Text;
                     string consulta = "select * from Productos where IdProducto <" + idProducto;
 
@@ -248,7 +248,7 @@ namespace TP4_PROG3
             {
                 if (ddlCategoria.SelectedIndex == 0)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdCategoría =" + idCategoria;
 
@@ -266,7 +266,7 @@ namespace TP4_PROG3
                 }
                 if (ddlCategoria.SelectedIndex == 1)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdCategoría >" + idCategoria;
 
@@ -284,7 +284,7 @@ namespace TP4_PROG3
                 }
                 if (ddlCategoria.SelectedIndex == 2)
                 {
-                    string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+                    string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
                     string idCategoria = txtCategoria.Text;
                     string consulta = "select * from Productos where IdCategoría <" + idCategoria;
 
@@ -308,7 +308,7 @@ namespace TP4_PROG3
         {
             txtProducto.Text = "";
             txtCategoria.Text = "";
-            string rutaBd = "Data;Initial Catalog=Neptuno;Integrated Security=True";
+            string rutaBd = "Data Source=LocalHost\\SQLEXPRESS;Initial Catalog=Neptuno;Integrated Security=True";
 
             string consulta = "select * from Productos ";
 
